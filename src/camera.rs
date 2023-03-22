@@ -39,13 +39,6 @@ impl Camera {
         self.bottom_y += CAMERA_INCREMENT;
     }
 
-    pub fn center_on_player(&mut self, player_position: Point) {
-        self.left_x   = player_position.x - DISPLAY_WIDTH/2;
-        self.right_x  = player_position.x + DISPLAY_WIDTH/2;
-        self.top_y    = player_position.y - DISPLAY_HEIGHT/2;
-        self.bottom_y = player_position.y + DISPLAY_HEIGHT/2;
-    }
-
     pub fn on_player_move(&mut self, player_position: Point) {
         if player_position.x - self.left_x < CAMERA_INCREMENT {
             self.move_left();
