@@ -9,7 +9,7 @@ pub fn spawn_player(ecs: &mut World, pos: Point) {
                 color: ColorPair::new(WHITE, BLACK),
                 glyph: to_cp437('@')
             },
-            Health { current: 4, max: 20 },
+            Health { current: 20, max: 20 },
         )
     );
 }
@@ -42,9 +42,9 @@ pub fn spawn_monster(
 
 
 fn goblin() -> (i32, String, FontCharType) {
-    (1, "Goblin".to_string(), to_cp437('g'))
+    (10, "Goblin".to_string(), to_cp437('g'))
 }
 
 fn orc() -> (i32, String, FontCharType) {
-    (2, "Orc".to_string(), to_cp437('o'))
+    (20, "Orc".to_string(), to_cp437('o'))
 }
