@@ -25,6 +25,7 @@ mod prelude {
 }
 
 use prelude::*;
+use std::process;
 
 struct State {
     ecs: World,
@@ -149,6 +150,11 @@ impl GameState for State {
             TurnState::Victory => {
                 self.victory(ctx);
             }
+
+        }
+
+        if let Some(VirtualKeyCode::Q) = ctx.key {
+            process::exit(0);
         }
 
         render_draw_buffer(ctx).expect("Render error")

@@ -7,7 +7,8 @@ pub struct Camera {
     pub bottom_y: i32,
 }
 
-const CAMERA_INCREMENT: i32 = 5;
+const CAMERA_MARGIN: i32 = 10;
+const CAMERA_INCREMENT: i32 = 1;
 
 impl Camera {
     pub fn new(player_position: Point) -> Self {
@@ -40,19 +41,19 @@ impl Camera {
     }
 
     pub fn on_player_move(&mut self, player_position: Point) {
-        if player_position.x - self.left_x < CAMERA_INCREMENT {
+        if player_position.x - self.left_x < CAMERA_MARGIN {
             self.move_left();
         }
 
-        if self.right_x - player_position.x < CAMERA_INCREMENT {
+        if self.right_x - player_position.x < CAMERA_MARGIN {
             self.move_right();
         }
 
-        if player_position.y - self.top_y < CAMERA_INCREMENT {
+        if player_position.y - self.top_y < CAMERA_MARGIN {
             self.move_up();
         }
 
-        if self.bottom_y - player_position.y < CAMERA_INCREMENT {
+        if self.bottom_y - player_position.y < CAMERA_MARGIN {
             self.move_down();
         }
     }
