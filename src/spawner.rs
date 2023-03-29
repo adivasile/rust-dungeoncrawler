@@ -33,18 +33,33 @@ pub fn spawn_monster(
                 color: ColorPair::new(WHITE, BLACK),
                 glyph,
             },
-            MovingRandomly,
+            ChasingPlayer,
             Health { current: hp, max: hp },
             Name(name),
         )
     );
 }
 
+pub fn spawn_amulet_of_yala(ecs: &mut World, pos: Point) {
+    ecs.push(
+        (
+            Item,
+            AmuletOfYala,
+            pos,
+            Render {
+                color: ColorPair::new(WHITE, BLACK),
+                glyph: to_cp437('|'),
+            },
+            Name("Amulet Of Yala".to_string())
+        )
+    );
+}
+
 
 fn goblin() -> (i32, String, FontCharType) {
-    (10, "Goblin".to_string(), to_cp437('g'))
+    (2, "Goblin".to_string(), to_cp437('g'))
 }
 
 fn orc() -> (i32, String, FontCharType) {
-    (20, "Orc".to_string(), to_cp437('o'))
+    (4, "Orc".to_string(), to_cp437('o'))
 }

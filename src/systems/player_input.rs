@@ -59,7 +59,6 @@ pub fn player_input(
             }
         }
 
-        println!("Do Something: {:?}", did_something);
         if !did_something {
             if let Ok(mut health) = ecs
                 .entry_mut(player_entity)
