@@ -41,6 +41,7 @@ impl State {
         let mut resources = Resources::default();
         let mut rng = RandomNumberGenerator::new();
         let map_builder = MapBuilder::new(&mut rng);
+
         map_builder.rooms
             .iter()
             .skip(1)
